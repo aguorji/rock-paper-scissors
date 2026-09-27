@@ -1,14 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors | Kevin O. Agu</title>
+  <meta name="description" content="Play Rock Paper Scissors against the computer. First to 5 wins.">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✊</text></svg>">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+  <main class="game">
+    <header class="game-header">
+      <h1>Rock <span>Paper</span> Scissors</h1>
+      <p class="subtitle">Beat the computer. <strong>First to 5 wins.</strong></p>
+    </header>
 
+    <section class="scoreboard" aria-label="Score">
+      <div class="player">
+        <p class="label">You</p>
+        <p class="score" id="human-score">0</p>
+        <p class="pick" id="human-pick" aria-hidden="true">❔</p>
+      </div>
+      <p class="versus">VS</p>
+      <div class="player">
+        <p class="label">Computer</p>
+        <p class="score" id="computer-score">0</p>
+        <p class="pick" id="computer-pick" aria-hidden="true">❔</p>
+      </div>
+    </section>
 
-    <script src="index.js"></script>
-    
+    <p class="message" id="message" role="status" aria-live="polite">Choose your move to start.</p>
+
+    <section class="choices" aria-label="Choose your move">
+      <button class="choice" data-choice="rock" aria-label="Rock (key R)">
+        <span class="emoji" aria-hidden="true">✊</span>Rock<kbd>R</kbd>
+      </button>
+      <button class="choice" data-choice="paper" aria-label="Paper (key P)">
+        <span class="emoji" aria-hidden="true">✋</span>Paper<kbd>P</kbd>
+      </button>
+      <button class="choice" data-choice="scissors" aria-label="Scissors (key S)">
+        <span class="emoji" aria-hidden="true">✌️</span>Scissors<kbd>S</kbd>
+      </button>
+    </section>
+
+    <section class="history" aria-label="Round history">
+      <h2>Rounds</h2>
+      <ol id="history"></ol>
+    </section>
+
+    <button class="reset" id="reset" type="button">Restart game</button>
+  </main>
+
+  <dialog id="result-dialog" aria-labelledby="result-title">
+    <p class="result-emoji" id="result-emoji" aria-hidden="true">🏆</p>
+    <h2 id="result-title">You win!</h2>
+    <p id="result-text"></p>
+    <button type="button" id="play-again" autofocus>Play again</button>
+  </dialog>
+
+  <footer class="footer">
+    Built by <a href="https://agutechlabs.com" target="_blank" rel="noopener">Kevin O. Agu · AguTech Labs</a>
+  </footer>
+
+  <script src="index.js"></script>
 </body>
+
 </html>
